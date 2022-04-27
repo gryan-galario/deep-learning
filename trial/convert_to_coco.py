@@ -6,7 +6,7 @@ import csv
 from PIL import Image
 
 pth = pathlib.Path(__file__).parent.resolve()
-datafolder = "drinks"
+datafolder = "drinks_small"
 pth = os.path.join(pth, datafolder)
 os.chdir(pth)
 filename = "labels_train.csv"
@@ -14,7 +14,7 @@ jsonfile = filename[:-4] + "_converted.json"
 
 df = pd.read_csv(filename)
 df['id'] = df['frame'].str.lstrip("0")
-df['id'] = df['id'].apply(lambda x: x[:-4])
+df['id'] = df['id'].apply(lambda x: x[:-4]).astype(int)
 df['bbox_width'] = df['xmax'] - df['xmin']
 df['bbox_height'] = df['ymax'] - df['ymin']
 df['img_width'] = pd.Series(dtype='int')
@@ -35,6 +35,7 @@ for index, row in df.iterrows():
         img_tmpdict['width'] = img_width
         img_tmpdict['height'] = img_height
         img_tmpdict['file_name'] = row['frame']
+        annotation_tmpdict['id'] = index + 1
         annotation_tmpdict['image_id'] = row['id']
         annotation_tmpdict['category_id'] = row['class_id']
         annotation_tmpdict['bbox'] = [row['xmin'], row['ymin'], row['bbox_width'], row['bbox_height']]

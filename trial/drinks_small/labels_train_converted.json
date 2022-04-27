@@ -1,37 +1,37 @@
 {
     "images": [
         {
-            "id": "1000",
+            "id": 1000,
             "width": 640,
             "height": 480,
             "file_name": "0001000.jpg"
         },
         {
-            "id": "999",
+            "id": 999,
             "width": 640,
             "height": 480,
             "file_name": "0000999.jpg"
         },
         {
-            "id": "998",
+            "id": 998,
             "width": 640,
             "height": 480,
             "file_name": "0000998.jpg"
         },
         {
-            "id": "997",
+            "id": 997,
             "width": 640,
             "height": 480,
             "file_name": "0000997.jpg"
         },
         {
-            "id": "996",
+            "id": 996,
             "width": 640,
             "height": 480,
             "file_name": "0000996.jpg"
         },
         {
-            "id": "995",
+            "id": 995,
             "width": 640,
             "height": 480,
             "file_name": "0000995.jpg"
@@ -39,7 +39,8 @@
     ],
     "annotations": [
         {
-            "image_id": "1000",
+            "id": 1,
+            "image_id": 1000,
             "category_id": 1,
             "bbox": [
                 310,
@@ -49,7 +50,8 @@
             ]
         },
         {
-            "image_id": "999",
+            "id": 2,
+            "image_id": 999,
             "category_id": 1,
             "bbox": [
                 194,
@@ -59,7 +61,8 @@
             ]
         },
         {
-            "image_id": "998",
+            "id": 3,
+            "image_id": 998,
             "category_id": 1,
             "bbox": [
                 105,
@@ -69,7 +72,8 @@
             ]
         },
         {
-            "image_id": "997",
+            "id": 4,
+            "image_id": 997,
             "category_id": 1,
             "bbox": [
                 157,
@@ -79,7 +83,8 @@
             ]
         },
         {
-            "image_id": "996",
+            "id": 5,
+            "image_id": 996,
             "category_id": 1,
             "bbox": [
                 51,
@@ -89,7 +94,8 @@
             ]
         },
         {
-            "image_id": "995",
+            "id": 6,
+            "image_id": 995,
             "category_id": 1,
             "bbox": [
                 183,
