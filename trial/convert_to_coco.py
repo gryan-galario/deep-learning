@@ -29,8 +29,8 @@ for index, row in df.iterrows():
         img_tmpdict = {}
         annotation_tmpdict = {}
         img_width, img_height = img.size
-        df.at[index, 'img_width'] = img_width
-        df.at[index, 'img_height'] = img_height
+        #df.at[index, 'img_width'] = img_width
+        #df.at[index, 'img_height'] = img_height
         img_tmpdict['id'] = row['id']
         img_tmpdict['width'] = img_width
         img_tmpdict['height'] = img_height
@@ -38,6 +38,7 @@ for index, row in df.iterrows():
         annotation_tmpdict['id'] = index + 1
         annotation_tmpdict['image_id'] = row['id']
         annotation_tmpdict['category_id'] = row['class_id']
+        annotation_tmpdict['segmentation'] = []
         annotation_tmpdict['bbox'] = [row['xmin'], row['ymin'], row['bbox_width'], row['bbox_height']]
         images.append(img_tmpdict)
         annotations.append(annotation_tmpdict)

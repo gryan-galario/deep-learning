@@ -42,6 +42,7 @@
             "id": 1,
             "image_id": 1000,
             "category_id": 1,
+            "segmentation": [],
             "bbox": [
                 310,
                 104,
@@ -53,6 +54,7 @@
             "id": 2,
             "image_id": 999,
             "category_id": 1,
+            "segmentation": [],
             "bbox": [
                 194,
                 96,
@@ -64,6 +66,7 @@
             "id": 3,
             "image_id": 998,
             "category_id": 1,
+            "segmentation": [],
             "bbox": [
                 105,
                 134,
@@ -75,6 +78,7 @@
             "id": 4,
             "image_id": 997,
             "category_id": 1,
+            "segmentation": [],
             "bbox": [
                 157,
                 89,
@@ -86,6 +90,7 @@
             "id": 5,
             "image_id": 996,
             "category_id": 1,
+            "segmentation": [],
             "bbox": [
                 51,
                 207,
@@ -97,6 +102,7 @@
             "id": 6,
             "image_id": 995,
             "category_id": 1,
+            "segmentation": [],
             "bbox": [
                 183,
                 156,
