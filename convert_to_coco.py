@@ -6,7 +6,7 @@ import csv
 from PIL import Image
 
 pth = pathlib.Path(__file__).parent.resolve()
-datafolder = "drinks_small"
+datafolder = "drinks"
 pth = os.path.join(pth, datafolder)
 os.chdir(pth)
 filename = "labels_train.csv"
