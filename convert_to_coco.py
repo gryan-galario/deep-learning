@@ -2,23 +2,21 @@ import os
 import pandas as pd
 import pathlib
 import json
-import csv
 from PIL import Image
 
 pth = pathlib.Path(__file__).parent.resolve()
 datafolder = "drinks"
 pth = os.path.join(pth, datafolder)
 os.chdir(pth)
-filename = "labels_train.csv"
+filename = "labels_test.csv"
 jsonfile = filename[:-4] + "_converted.json"
 
 df = pd.read_csv(filename)
-df['id'] = df['frame'].str.lstrip("0")
-df['id'] = df['id'].apply(lambda x: x[:-4]).astype(int)
+df['id'] = df['frame'].apply(lambda x: x[3:-4]).astype(int)
 df['bbox_width'] = df['xmax'] - df['xmin']
 df['bbox_height'] = df['ymax'] - df['ymin']
-df['img_width'] = pd.Series(dtype='int')
-df['img_height'] = pd.Series(dtype='int')
+#df['img_width'] = pd.Series(dtype='int')
+#df['img_height'] = pd.Series(dtype='int')
 
 categories = [{"id": 1, "name": "Summit Drinking Water"}, {"id":2, "name": "Coke"}, {"id": 3, "name":"Pineapple Juice"}]
 images = []
