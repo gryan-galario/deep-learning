@@ -11,3 +11,6 @@ cython
 wandb
 
 pycocotools
+
+pytorch-lightning
+torchmetrics
