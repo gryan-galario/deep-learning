@@ -12,7 +12,7 @@ filename = "labels_test.csv"
 jsonfile = filename[:-4] + "_converted.json"
 
 df = pd.read_csv(filename)
-df['id'] = df['frame'].apply(lambda x: x[3:-4]).astype(int)
+df['id'] = df['frame'].apply(lambda x: x[2:-4]).astype(int)
 df['bbox_width'] = df['xmax'] - df['xmin']
 df['bbox_height'] = df['ymax'] - df['ymin']
 #df['img_width'] = pd.Series(dtype='int')
@@ -38,6 +38,8 @@ for index, row in df.iterrows():
         annotation_tmpdict['category_id'] = row['class_id']
         annotation_tmpdict['segmentation'] = []
         annotation_tmpdict['bbox'] = [row['xmin'], row['ymin'], row['bbox_width'], row['bbox_height']]
+        annotation_tmpdict['area'] = row['bbox_width'] * row['bbox_height']
+        annotation_tmpdict['iscrowd'] = 0
         images.append(img_tmpdict)
         annotations.append(annotation_tmpdict)
 
