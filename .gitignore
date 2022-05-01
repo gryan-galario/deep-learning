@@ -1,2 +1,3 @@
-# Ignore the drinks folder
+# Ignore the drinks folder and model pth
 drinks
+model_epoch_4.pth
