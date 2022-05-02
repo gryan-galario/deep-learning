@@ -13,7 +13,9 @@ class  VideoDemo():
                  record=False,
                  filename="demo.mp4"):
         self.camera = camera
+        self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         self.detector = detector
+        self.detector = self.detector.to(device=self.device)
         self.width = width
         self.height = height
         self.record = record
@@ -52,7 +54,7 @@ class  VideoDemo():
             img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             img = transform(img)
             img = torch.unsqueeze(img, 0)
-            img = img.to(device=device)
+            img = img.to(device=self.device)
             predictions = self.detector(img)[0]
             boxes = predictions['boxes'].tolist()
             labels = predictions['labels'].tolist()
