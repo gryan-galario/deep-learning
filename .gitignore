@@ -1,3 +1,4 @@
 # Ignore the drinks folder and model pth
 drinks
 model_epoch_4.pth
+transformer-kws-best-acc-v4

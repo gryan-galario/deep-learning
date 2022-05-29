@@ -1,0 +1,13 @@
+torch
+torchvision
+torchaudio
+librosa
+einops
+pytorch-lightning
+torchmetrics
+numpy
+wandb
+matplotlib
+pysimplegui
+sounddevice
+validators
