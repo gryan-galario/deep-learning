@@ -69,7 +69,7 @@ class KWSDataModule(LightningDataModule):
 
     def prepare_data(self):
         self.train_dataset = torchaudio.datasets.SPEECHCOMMANDS(self.path,
-                                                                download=False,
+                                                                download=True,
                                                                 subset='training')
 
         silence_dataset = SilenceDataset(self.path)
@@ -77,10 +77,10 @@ class KWSDataModule(LightningDataModule):
         self.train_dataset = torch.utils.data.ConcatDataset([self.train_dataset, silence_dataset, unknown_dataset])
                                                                 
         self.val_dataset = torchaudio.datasets.SPEECHCOMMANDS(self.path,
-                                                              download=False,
+                                                              download=True,
                                                               subset='validation')
         self.test_dataset = torchaudio.datasets.SPEECHCOMMANDS(self.path,
-                                                               download=False,
+                                                               download=True,
                                                                subset='testing')                                                    
         _, sample_rate, _, _, _ = self.train_dataset[0]
         self.sample_rate = sample_rate
@@ -295,7 +295,7 @@ path = os.getcwd()
 
 model_checkpoint = ModelCheckpoint(
     dirpath=os.path.join(path, "checkpoints"),
-    filename="transformer-kws-best-acc-v4",
+    filename="transformer-kws-best-acc-v5",
     save_top_k=1,
     verbose=True,
     monitor='test_acc',
@@ -316,7 +316,7 @@ def get_args():
                         help='learning rate (default: 0.001)')
     parser.add_argument('--accelerator', default='gpu', type=str, metavar='N')
     parser.add_argument('--devices', default=1, type=int, metavar='N')
-    parser.add_argument('--num_workers', default=2, type=int, metavar='N')
+    parser.add_argument('--num_workers', default=4, type=int, metavar='N')
 
     # 35 keywords + silence + unknown
     parser.add_argument("--num_classes", type=int, default=37)
@@ -358,7 +358,7 @@ seqlen
 patch_dim
 
 model = LitTransformer(num_classes=args.num_classes, lr=args.lr, epochs=args.max_epochs, 
-                           depth=args.depth, embed_dim=args.embed_dim, head=args.head,
+                           depth=args.depth, embed_dim=args.embed_dim, head=args.num_heads,
                            patch_dim=patch_dim, seqlen=seqlen,)
 model.hparams.sample_rate = datamodule.sample_rate
 model.hparams.idx_to_class = idx_to_class
