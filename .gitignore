@@ -3,3 +3,5 @@ drinks
 model_epoch_4.pth
 transformer-kws-best-acc-v4.ckpt
 data
+lightning_logs
+checkpoints
